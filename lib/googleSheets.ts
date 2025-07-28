@@ -3,10 +3,13 @@ import { google } from 'googleapis';
 // Initialize Google Sheets API
 export const getGoogleSheetsClient = () => {
   try {
+    // ⚠️ TODO: แทนที่ส่วนนี้ด้วย private key จริงจากไฟล์ JSON ของ Google Service Account
+    const HARDCODED_PRIVATE_KEY = `-----BEGIN PRIVATE KEY-----\nMIIEvQIBADANBgkqhkiG9w0BAQEFAASCBKcwggSjAgEAAoIBAQC+wmkj5mtzXlYi\niiaA4b/LZMbPwHYcVXAL1e2HTz5lYM3t+8bkY1dVqkMzxvaTXFyZwIVMJxcc5blR\n2wV+fItidrg6uVrXAkKA4lzgjxVRH2C1Pq9pZOMQUaLqMaZW4rbixCvQayU+zcpn\nxqVPz9XR4YMbYKTfX8orrxiLQRlLFgMME+XzKJW5WbPh8wAIzeg2H9tE6EVgsqwW\nRp7JAu0FYDLphFWKnuS9+yJKo0rcnlAHlcvPzw4C0f8MzloAApAgqb7txGDpxiOT\nmsuYpp68jDe6eXwYtDw26a++LmK7f5MbY9Tlb2ltqL9FGrVM4UOr9KIalB7P2g+v\n/exrcI2xAgMBAAECggEACNRvyJWwivW+mdEQXtI8RhBZT8nkSbPWeLTHfrY3QJrw\nU0wOiPk0dGKaA1w6AwiRIHyP6v5K+Idlam2fgasnCkjtpom4g8fu7z9zHkGfQmrX\n95HCDbhJ1qI5vtqLHR3XynO7RbWk8uUUkbTJJ4JqvsEgGAkDXrPU1Exxv9Xkw2P6\nBECR/9GVHtXFsuIh6neqY62QIPeBx4EpsyRFfZ69SPcCKmrervC8iLQ4hmaie2KB\nAKJQXK1w1bC/NAkzPGbzQ5G3bA855x5TYH0IHgHGegoh0q3ZReO2kXSC5ptGkFdy\nvtBsfN3sexy3WKDqGu25M55H0vdhv/9HWhmMVHU0wQKBgQD6aQBQy44Z4P55dGox\nP1c1xL+6oQ08kRWKw11WCkpOc76NXa0uNVBF3qbh0WQc9PjgmxMeFXG4tFaWVTZZ\naMpS2ljgjkDkIjWlx8bwQcLlP+/VCeXVnxC/AZ83Bv9GMqdnJy1TcaUA36dHCbcF\nx1uluItd7At8MBsg7o99RvEScQKBgQDDBIc2KbN1I0w7AAxggL6yyytuo7plr4Y+\nUqJYBflGXA/LlJUQJxsCGRkxFADPStd4xNWByc2o10EZi/en2MeY7M06OoR8yZIK\n3Ptr0NdPZ244aoeeSlbyRKiq1+bP+87S0nK+oY2Lg+OGidwkXye2YmJw4ce5bLF1\ne5IgTSpPQQKBgQCdXRkerR0K9FLXPqpxcm26037tqMIpur8/6dAg/ux9as1oB2OK\ns2RT1D0pki4I6IXymGGmOTGzMllrtfcmruzermrGC3+KHll6ahaB68Gv0cNFLSgr\nW//pGPrWWOZZVgHPmFYqpzNbXjHAOcGztvnIJjYm+uyoyY5y3ph70PY0cQKBgH+s\nAj0iVdtVLX3ezTuMbcwtmJSJWeliXReGD8RivMwkTy7vahs2Dsdz2Ps5ZkJPc/sb\nmc+rZxmnOnZYHN1k3V8vgDgjwULUz+iOvYbbJWpVg2Ip0/l8H6nh6y5VxETbTI7W\nuco1h64TvSwCKv4g0aXkiR/voEqzbwZDzOmaux1BAoGATcMlAXZ1XfbzMWwUQwWj\n8LHzKs0Z1OyjEYmqMqXzMr0LRBFjXc/Rnxx9sqbcKab3WfQ+5eI8+PL7DK1XdGoJ\niKysWAn5Bnl2z2Mel9haAE1VipE6apq8/SbJxGVqR57snK4mccqLbxQvPh0vpegT\nw0DDULFUnDaEtWSl+AwQsUo=\n-----END PRIVATE KEY-----\n`;
+
     const auth = new google.auth.GoogleAuth({
       credentials: {
         client_email: process.env.GOOGLE_SHEETS_CLIENT_EMAIL,
-        private_key: process.env.GOOGLE_SHEETS_PRIVATE_KEY?.replace(/\\n/g, '\n'),
+        private_key: HARDCODED_PRIVATE_KEY,
       },
       scopes: ['https://www.googleapis.com/auth/spreadsheets'],
     });
