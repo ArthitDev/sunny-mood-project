@@ -14,7 +14,7 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   title: "💕เราคิดไรอยู่กันนะ💕",
-  description: "ฟังเสียงหัวใจของซันที่มีต่อคุณ แอปจีบน่ารักๆ ที่จะทำให้คุณรู้สึกพิเศษ",
+  description: "มาฟังเสียงหัวใจของเราซะเส้.......",
   icons: {
     icon: "/favicon.png",
     shortcut: "/favicon.png",
