@@ -36,6 +36,17 @@ export default function Home() {
       setMessage(data.message);
       setShowHearts(true);
       setTimeout(() => setShowHearts(false), 12000);
+      
+      // บันทึกผู้เยี่ยมชม
+      try {
+        await fetch("/api/log", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ name }),
+        });
+      } catch (error) {
+        console.error("Error logging visitor:", error);
+      }
     } catch (error) {
       console.error("Error fetching message:", error);
       setMessage("ขออภัยนะงับบ ลองใหม่อีกครั้งนะ 💕");
