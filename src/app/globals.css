@@ -24,3 +24,145 @@ body {
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
 }
+
+/* แอนิเมชันหัวใจลอยขึ้น */
+@keyframes floatUp {
+  0% {
+    transform: translateY(0) rotate(0deg);
+    opacity: 0;
+  }
+  10% {
+    opacity: 1;
+  }
+  90% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(-100vh) rotate(360deg);
+    opacity: 0;
+  }
+}
+
+/* แอนิเมชันหัวใจกระจายจากด้านข้าง */
+@keyframes floatFromLeft {
+  0% {
+    transform: translateX(0) translateY(0) rotate(0deg);
+    opacity: 0;
+  }
+  10% {
+    opacity: 1;
+  }
+  90% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateX(80vw) translateY(-50vh) rotate(360deg);
+    opacity: 0;
+  }
+}
+
+@keyframes floatFromRight {
+  0% {
+    transform: translateX(0) translateY(0) rotate(0deg);
+    opacity: 0;
+  }
+  10% {
+    opacity: 1;
+  }
+  90% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateX(-80vw) translateY(-50vh) rotate(360deg);
+    opacity: 0;
+  }
+}
+
+@keyframes floatDiagonal {
+  0% {
+    transform: translateX(0) translateY(0) rotate(0deg);
+    opacity: 0;
+  }
+  10% {
+    opacity: 1;
+  }
+  90% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateX(60vw) translateY(-80vh) rotate(720deg);
+    opacity: 0;
+  }
+}
+
+.float-heart {
+  animation: floatUp 8s ease-out forwards;
+}
+
+.float-heart-left {
+  animation: floatFromLeft 8s ease-out forwards;
+}
+
+.float-heart-right {
+  animation: floatFromRight 8s ease-out forwards;
+}
+
+.float-heart-diagonal {
+  animation: floatDiagonal 9s ease-out forwards;
+}
+
+/* แอนิเมชันจางเข้า */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.5s ease-out;
+}
+
+/* แอนิเมชันการโหลด */
+@keyframes bounce {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.loading-heart {
+  animation: bounce 1s ease-in-out infinite;
+}
+
+.loading-text {
+  animation: pulse 1.5s ease-in-out infinite;
+}
+
+.loading-spinner {
+  animation: spin 2s linear infinite;
+}
