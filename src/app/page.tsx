@@ -109,7 +109,6 @@ export default function Home() {
       "🌹",
       "💐",
       "🎀",
-      "💒",
       "💏",
       "💑",
       "💋",
@@ -301,7 +300,80 @@ export default function Home() {
 
   return (
     <main className="flex min-h-screen flex-col items-center justify-center p-4 sm:p-6 md:p-8 bg-gradient-to-br from-pink-100 via-red-50 to-rose-200 font-sans relative overflow-hidden">
-      <div className="w-full max-w-sm sm:max-w-md lg:max-w-lg mx-auto bg-white rounded-2xl sm:rounded-3xl shadow-xl sm:shadow-2xl p-6 sm:p-8 text-center border-2 border-pink-200">
+      {/* Background sparkles and floating elements */}
+      <div className="absolute inset-0 overflow-hidden pointer-events-none">
+        {/* Floating sparkles */}
+        {[...Array(20)].map((_, i) => (
+          <div
+            key={`sparkle-${i}`}
+            className="absolute animate-ping opacity-30"
+            style={{
+              left: `${Math.random() * 100}%`,
+              top: `${Math.random() * 100}%`,
+              animationDelay: `${Math.random() * 4}s`,
+              animationDuration: `${2 + Math.random() * 3}s`,
+            }}
+          >
+            <span className="text-yellow-300 text-lg">✨</span>
+          </div>
+        ))}
+        
+        {/* Floating hearts */}
+        {[...Array(12)].map((_, i) => (
+          <div
+            key={`bg-heart-${i}`}
+            className="absolute animate-pulse opacity-20"
+            style={{
+              left: `${Math.random() * 100}%`,
+              top: `${Math.random() * 100}%`,
+              animationDelay: `${Math.random() * 3}s`,
+              animationDuration: `${3 + Math.random() * 2}s`,
+            }}
+          >
+            <span className="text-pink-300 text-xl">
+              {['💕', '💖', '💗', '💘', '💝'][Math.floor(Math.random() * 5)]}
+            </span>
+          </div>
+        ))}
+        
+        {/* Floating stars */}
+        {[...Array(15)].map((_, i) => (
+          <div
+            key={`star-${i}`}
+            className="absolute animate-pulse opacity-25"
+            style={{
+              left: `${Math.random() * 100}%`,
+              top: `${Math.random() * 100}%`,
+              animationDelay: `${Math.random() * 5}s`,
+              animationDuration: `${4 + Math.random() * 2}s`,
+            }}
+          >
+            <span className="text-yellow-400 text-base">
+              {['⭐', '🌟', '💫', '✨'][Math.floor(Math.random() * 4)]}
+            </span>
+          </div>
+        ))}
+        
+        {/* Floating flowers */}
+        {[...Array(8)].map((_, i) => (
+          <div
+            key={`flower-${i}`}
+            className="absolute animate-pulse opacity-15"
+            style={{
+              left: `${Math.random() * 100}%`,
+              top: `${Math.random() * 100}%`,
+              animationDelay: `${Math.random() * 6}s`,
+              animationDuration: `${5 + Math.random() * 2}s`,
+            }}
+          >
+            <span className="text-pink-200 text-lg">
+              {['🌸', '🌺', '🌷', '🌹'][Math.floor(Math.random() * 4)]}
+            </span>
+          </div>
+        ))}
+      </div>
+
+      <div className="w-full max-w-sm sm:max-w-md lg:max-w-lg mx-auto bg-white/95 backdrop-blur-sm rounded-2xl sm:rounded-3xl shadow-xl sm:shadow-2xl p-6 sm:p-8 text-center border-2 border-pink-200 relative z-10">
         <h1 className="text-2xl sm:text-2xl lg:text-3xl font-bold text-gray-800 mb-2">
           💕 เราคิดอะไรอยู่น้าาา... 💕
         </h1>
