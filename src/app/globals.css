@@ -127,6 +127,37 @@ body {
   animation: fadeIn 0.5s ease-out;
 }
 
+/* เพิ่มแอนิเมชันสำหรับ Loading Screen */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes sparkle {
+  0%, 100% {
+    opacity: 0;
+    transform: scale(0);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.animate-fade-in-up {
+  animation: fadeInUp 0.6s ease-out;
+}
+
+.animate-sparkle {
+  animation: sparkle 2s ease-in-out infinite;
+}
+
 /* แอนิเมชันการโหลด */
 @keyframes bounce {
   0%, 100% {

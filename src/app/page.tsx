@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import LoadingScreen from "./components/LoadingScreen";
 
 export default function Home() {
   const [name, setName] = useState("");
@@ -8,6 +9,7 @@ export default function Home() {
   const [loading, setLoading] = useState(false);
   const [nameSubmitted, setNameSubmitted] = useState(false);
   const [showHearts, setShowHearts] = useState(false);
+  const [showLoadingScreen, setShowLoadingScreen] = useState(true);
 
   const handleSubmit = async (event: React.FormEvent) => {
     event.preventDefault();
@@ -286,6 +288,16 @@ export default function Home() {
     
     return hearts;
   };
+
+  // Handle loading screen completion
+  const handleLoadingComplete = () => {
+    setShowLoadingScreen(false);
+  };
+
+  // Show loading screen first
+  if (showLoadingScreen) {
+    return <LoadingScreen onComplete={handleLoadingComplete} />;
+  }
 
   return (
     <main className="flex min-h-screen flex-col items-center justify-center p-4 sm:p-6 md:p-8 bg-gradient-to-br from-pink-100 via-red-50 to-rose-200 font-sans relative overflow-hidden">
